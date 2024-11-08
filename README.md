@@ -1,6 +1,6 @@
 # SwiggyClone
 
-SwiggyClone is a web application for food delivery, built with Angular. It allows users to explore various restaurants, browse through their menus, add menu items to a cart, and complete a checkout process. The project replicates core features of a typical food delivery service.
+SwiggyClone is a food delivery web application built using Angular. It lets users explore restaurants, browse food menus, manage their cart, and complete a checkout. The application features wishlist functionality and real-time price updates, emulating a real-world food delivery service.
 
 ## Table of Contents
 
@@ -8,8 +8,7 @@ SwiggyClone is a web application for food delivery, built with Angular. It allow
 - [Usage Guide](#usage-guide)
 - [Component Breakdown](#component-breakdown)
 - [Services Overview](#services-overview)
-- [Wishlist Feature](#wishlist-feature)
-- [Cart and Checkout Functionality](#cart-and-checkout-functionality)
+- [Data Models and Interfaces](#data-models-and-interfaces)
 - [Development Instructions](#development-instructions)
 - [Contributing](#contributing)
 
@@ -17,73 +16,76 @@ SwiggyClone is a web application for food delivery, built with Angular. It allow
 
 ## Key Features
 
-- **Restaurant Selection**: Displays available restaurants in a list format for users to choose from.
-- **Menu Display**: Shows the menu items of each selected restaurant.
-- **Cart Management**: Allows adding items to a cart, adjusting quantities, and viewing total cost.
-- **Wishlist**: Enables users to save restaurants for future visits.
-- **Dynamic Pricing**: Updates the cart total in real time as items are added or removed.
-- **Checkout**: Completes the order by clearing the cart after submission.
+- **Restaurant & Menu Browsing**: Users can view available restaurants and their menus.
+- **Search**: Find restaurants or specific items through the search functionality.
+- **Cart Management**: Add, remove, and adjust items in the cart, with real-time price updates.
+- **Wishlist**: Save favorite restaurants and menu items for quick access.
+- **Dynamic Pricing**: Cart totals update automatically based on the quantity and selection of items.
+- **Checkout**: Complete an order and clear the cart after submission.
 
 ---
 
 ## Component Breakdown
 
-- **app-root** - The root component that loads the main structure of the application.
-- **RestaurantComponent** - Displays a list of restaurants in a grid layout, with the option to add/remove restaurants from the wishlist.
-- **MenuComponent** - Lists menu items available at a selected restaurant.
-- **CartComponent** - Shows items added to the cart with quantity controls and displays the total cost, with a checkout button to submit the order.
+- **app-root** - Main root component that initializes the application.
+- **HomeComponent** - Displays the homepage with an overview of restaurants and featured items.
+- **FoodPageComponent** - Shows details of a specific food item, including images, description, and price.
+- **FoodMenuComponent** - Lists menu items for each restaurant.
+- **FavoriteComponent** - Shows the user’s wishlist of saved items.
+- **CartPageComponent** - Displays items in the user’s cart with quantity adjustments and checkout options.
+- **SearchComponent** - Allows users to search for restaurants or menu items.
+- **NotFoundComponent** - Error page that appears when a route or item is not found.
+- **StarRatingComponent** - Displays the star rating for food items.
+- **TagComponent** - Displays tags related to each food item, such as cuisine type or dietary information.
 
 ## Services Overview
 
-- **CartServiceService**: Manages the cart, including items, quantities, and the cart’s total count. It handles order submission by sending data to a mock API and clears the cart after a successful order.
+- **CartService**: Manages cart state, including item quantities and total price calculations. Handles checkout by submitting data to the API and clearing the cart after completion.
+- **FoodService**: Manages data retrieval for restaurants, menu items, and specific food details.
+- **FavoriteService**: Allows users to add/remove items from their wishlist and maintains the list across user sessions.
+
+## Data Models and Interfaces
+
+- **cart.ts** - Defines the Cart interface, detailing properties such as cart items and total price.
+- **cartitem.ts** - Interface for individual items in the cart, including name, quantity, and price.
+- **food.ts** - Interface for food items, including attributes like name, price, rating, and tags.
+- **tag.ts** - Interface for tags associated with food items, such as cuisine type, dietary preferences, etc.
 
 ## Development Instructions
 
-Run `ng serve` to start a development server. Go to `http://localhost:4200/` to view the app in your browser. The app will reload automatically with any changes to source files.
+Run `ng serve` to start a development server. Navigate to `http://localhost:4200/` to view the app in the browser. The application will automatically reload if you make changes to the source files.
 
 ## Usage Guide
 
-- **Restaurant Browsing**: Restaurants are presented in a grid format. Users can click on a restaurant to access its menu, and add/remove restaurants from their wishlist.
-- **Adding to Cart**: Users can add items from the menu to the cart with a single click. Quantities can be modified in the cart, with prices updating in real time.
-- **Checkout**: Pressing the Checkout button sends the order to a mock API endpoint and clears the cart on successful submission.
-
-## Wishlist Feature
-The Wishlist feature allows users to save their favorite restaurants for quick access. In `RestaurantComponent`, the `toggleWishlist` function adds or removes a restaurant from the wishlist based on its `isFavorite` status.
-
-## Cart and Checkout Functionality
-
-- **CartServiceService**:
-  - Adds items to the cart.
-  - Updates item quantities.
-  - Calculates and displays the cart’s total items and cost.
-  
-- **Real-Time Price Updates**: In `CartComponent`, the `cartItems$` observable monitors cart content changes, recalculating the total whenever items are updated.
-
-- **Checkout**: The `checkout` function in `CartComponent` submits order details (item name, quantity, price) to the mock API and empties the cart once the order is completed.
+- **Restaurant & Menu Browsing**: The homepage shows restaurants in a grid. Clicking a restaurant reveals its full menu.
+- **Search**: The search bar allows users to quickly locate restaurants or menu items.
+- **Add to Cart**: Users can add menu items to their cart from the Food Menu or Food Page components. Quantities can be adjusted in the cart, and the total cost updates automatically.
+- **Wishlist**: Users can add restaurants or menu items to a wishlist for easy access in the FavoriteComponent.
+- **Checkout**: Clicking the Checkout button on the Cart Page submits the order to the API and clears the cart after a successful order.
 
 ## Code Scaffolding
 
-Use `ng generate component component-name` to create new components. Additional options include generating directives, pipes, services, classes, guards, interfaces, enums, and modules.
+Use `ng generate component component-name` to create a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
-Run `ng build` to compile the project. The compiled files will be saved in the `dist/` directory.
+Run `ng build` to compile the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running Tests
 
-- **Unit Tests**: Run `ng test` to execute unit tests via [Karma](https://karma-runner.github.io).
-- **End-to-End Tests**: Run `ng e2e` to execute end-to-end tests using a testing platform of your choice. Ensure an end-to-end testing package is installed first.
+- **Unit Tests**: Run `ng test` to execute unit tests with [Karma](https://karma-runner.github.io).
+- **End-to-End Tests**: Run `ng e2e` to execute end-to-end tests. Ensure that an e2e testing package is installed.
 
 ## Contributing
 
 To contribute:
 
-1. Fork the repository.
+1. Fork this repository.
 2. Create a new branch (`git checkout -b feature-name`).
-3. Commit your updates (`git commit -m 'Add new feature'`).
-4. Push your branch (`git push origin feature-name`).
-5. Submit a pull request.
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Open a pull request.
 
 ## Further Assistance
 
-For more information on the Angular CLI, run `ng help` or visit the [Angular CLI Documentation](https://angular.io/cli).
+For more information on Angular CLI commands, use `ng help` or visit the [Angular CLI Documentation](https://angular.io/cli).
