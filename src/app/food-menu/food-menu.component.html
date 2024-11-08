@@ -1,0 +1,15 @@
+<div class="menu-container">
+  <h2 class="menu-title">What's on your mind?</h2>
+
+  <div class="menu-items">
+    <div class="scroll-btn left" (click)="scrollLeft()">&lt;</div>
+    <div class="scroll-btn right" (click)="scrollRight()">&gt;</div>
+
+    <div class="menu-scroll" #menuScroll>
+      <div *ngFor="let item of foodItems" class="menu-item">
+        <img [src]="item.image" alt="{{ item.name }}" />
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

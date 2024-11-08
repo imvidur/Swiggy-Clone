@@ -1,0 +1,97 @@
+
+.header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+  }
+  
+ 
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;    
+    padding: 10 20px;     
+    margin: 0 auto;       
+    height: 80px;         
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;         
+    margin-right: 15px;   
+  }
+
+  .dropdown {
+    cursor: pointer;
+    font-size: 16px;      /* Increase font size */
+    color: #ff5a00;
+  }
+  
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    margin-left: 40px;    
+    font-size: 16px;     
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+ 
+.nav-link i {
+    margin-right: 8px; 
+    font-size: 16px;   
+    color: #333;       
+  }
+  
+
+  .offers {
+    position: relative;
+    color: #333;
+  }
+  
+  .new {
+    color: #ff5a00;
+    font-size: 12px;      
+    font-weight: bold;
+    margin-left: 4px;
+  }
+  
+
+  .cart {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-count {
+    font-size: 16px;      
+    font-weight: bold;
+    margin-left: 5px;
+    color: #333;
+  }
+  app-search {
+    display: inline-flex; 
+    align-items: center;
+    width: 150px; 
+    margin: 0 15px; 
+  }
+  
+  app-search input {
+    width: 100%; 
+    padding: 5px 10px; 
+  }
+  

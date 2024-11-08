@@ -1,0 +1,10 @@
+<div class="search-container">
+    <i class="fas fa-search search-icon" (click)="search()"></i>
+    <input
+      type="text"
+      placeholder="Search Food!"
+      [(ngModel)]="searchTerm"
+      (keydown.enter)="search()"
+    />
+  </div>
+  

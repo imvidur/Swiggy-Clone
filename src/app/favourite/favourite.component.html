@@ -1,0 +1,19 @@
+
+<div class="favorites-page">
+    <h2>Your Favorite Foods</h2>
+    <div *ngIf="favorites.length === 0" class="no-favorites">
+        <p>No favorite foods added yet.</p>
+    </div>
+    <div class="favorites-list">
+        <div class="favorite-card" *ngFor="let food of favorites">
+            <img [src]="food.imageUrl" [alt]="food.name" class="food-image" />
+            <div class="food-details">
+                <h3>{{ food.name }}</h3>
+                <p class="description">{{ food.description }}</p>
+                <div class="actions">
+                    <button (click)="removeFavorite(food.id)">Remove from Favorites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
